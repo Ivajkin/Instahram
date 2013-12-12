@@ -1,8 +1,8 @@
 <?php
 	define("SERVER_NAME", "localhost");
-	define("DB_NAME", "core5429_instahram");
-	define("LOGIN", "core5429_instahram");
-	define("PASSWORD", "12345");
+	define("DB_NAME", "core5429_ihram");
+	define("LOGIN", "core5429_ihram");
+	define("PASSWORD", "совсем1");
 	
 	class site_session
 	{
@@ -115,7 +115,7 @@
 	}
 
 
-	class site_module_output extends site_module//Вывод блоков отдельных публикаций
+	/*class site_module_output extends site_module//Вывод блоков отдельных публикаций
 	{
 		function output()
 		{
@@ -278,5 +278,5 @@ echo'				</td>
 				$this->sql->next();
 			}
 		}
-	}
+	}*/
 ?>
