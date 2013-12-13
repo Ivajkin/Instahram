@@ -4,56 +4,34 @@
 	define("LOGIN", "core5429_ihram");
 	define("PASSWORD", "совсем1");
 	
-	class site_session
-	{
-		private $server;
-		private $db_name;
-		private $login;
-		private $password;
-		public $data;
-
-		function __construct()
-		{
-			$this->server=SERVER_NAME;
-			$this->db_name=DB_NAME;
-			$this->login=LOGIN;
-			$this->password=PASSWORD;
-
-			$this->data=mysql_connect($this->server,$this->login,$this->password) OR DIE("Не могу создать соединение");
+	class site_session {
+		public $db;
+		function __construct() {
+			$this->db = mysql_connect(SERVER_NAME, LOGIN, PASSWORD) or die("Не могу создать соединение");
 			mysql_query('SET NAMES utf8');
-			mysql_select_db($this->db_name, $this->data) or die(mysql_error());
+			mysql_select_db(DB_NAME, $this->db) or die(mysql_error());
 		}
 	}
 
-	class site_query
-	{
+	class site_query {
 		public $sql;
 		public $row=null;
 		private $res;
-		
-		public function run($ses)
-		{
-			$this->res=mysql_query($this->sql,$ses) or die(mysql_error());
-			$this->row=mysql_fetch_array($res);			
+		public function run($ses) {
+			$this->res = mysql_query($this->sql, $ses) or die(mysql_error());
+			$this->row = mysql_fetch_array($res);			
 		}
-		
-		public function next()
-		{
-			if(!$this->row=mysql_fetch_array($this->res))
-			{
+		public function next() {
+			if(!$this->row = mysql_fetch_array($this->res)) {
 				$this->row=null;
 			}
 		}
-		
-		public function update($ses, $sql)
-		{
+		public function update($ses, $sql) {
 			$this->sql=$sql;
 			$this->res=mysql_query($sql,$ses) or die(mysql_error());
 			$this->row=mysql_fetch_array($this->res);
 		}
-		
-		function __construct($ses, $sql)
-		{
+		function __construct($ses, $sql) {
 			$this->sql=$sql;
 			$this->res=mysql_query($sql,$ses) or die(mysql_error());
 			$this->row=mysql_fetch_array($this->res);
@@ -61,8 +39,7 @@
 	}
 
 
-	abstract class site_module
-	{
+	abstract class site_module {
 		public $sqlstring=null;
 		protected $sql;
 		protected $ses;
@@ -80,7 +57,7 @@
 		function get_category_id($name)
 		{
 			$category=explode('/', $name);
-			$cat_sql=new site_query($this->ses->data, 'SELECT * FROM vodoley__menu WHERE link="'.$category[1].'" LIMIT 1');
+			$cat_sql=new site_query($this->ses->db, 'SELECT * FROM vodoley__menu WHERE link="'.$category[1].'" LIMIT 1');
 			$this->cur_cat_id=$cat_sql->row['ID'];
 		}
 		
@@ -89,7 +66,7 @@
 			$this->cur_cat=explode('/', $_GET['path']);
 			if($this->cur_cat[0]==null)
 			{
-				$cat_sql=new site_query($this->ses->data, 'SELECT * FROM vodoley__menu ORDER BY menu_order LIMIT 1');
+				$cat_sql=new site_query($this->ses->db, 'SELECT * FROM vodoley__menu ORDER BY menu_order LIMIT 1');
 				$this->cur_cat[0]=$cat_sql->row['link'];
 			}
 			else
@@ -104,13 +81,13 @@
 		
 		function update()
 		{
-			$this->sql = new site_query($this->ses->data, $this->sqlstring);
+			$this->sql = new site_query($this->ses->db, $this->sqlstring);
 		}
 		
 		function __construct()
 		{
 			$this->ses = new site_session();
-			if($this->sqlstring != null) {$this->sql = new site_query($this->ses->data, $this->sqlstring);}
+			if($this->sqlstring != null) {$this->sql = new site_query($this->ses->db, $this->sqlstring);}
 		}
 	}
 

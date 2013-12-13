@@ -1,5 +1,16 @@
+/*create table agnus (
+	nomina varchar(100),	
+	informatio varchar(1000),
+	idem int not null auto_increment
+);
 
+create table oratio (
+	amen int,
+	verba varchar(1000),
+	agnus varchar(100)
+);*/
 
-CREATE USER 'core5429_ihram'@'localhost' IDENTIFIED BY  '***';
-GRANT ALL PRIVILEGES ON * . * TO  'core5429_ihram'@'localhost' IDENTIFIED BY '***' WITH GRANT OPTION MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0 ;
-GRANT ALL PRIVILEGES ON  `core5429_ihram` . * TO  'core5429_ihram'@'localhost';
+create table oratio (
+	amen int,
+	verba varchar(1000)
+);
