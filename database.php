@@ -42,6 +42,7 @@
 		echo "]";
 	} else if(isset($_POST['add_prey'])) {
 		$prey = $_POST['add_prey'];
+		$prey = addslashes(urldecode($prey));
 		$query = "insert into oratio values (0, \"".$prey."\")";
 		new query($query);
 		echo "ok, sql query: ".$query;
