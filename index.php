@@ -49,7 +49,7 @@
 							data: { 'to_amen_oratio_verba': pray },
 							dataType: 'html',
 							success: function(result) {
-								alert('the request was successfully sent to the server and result: '+ result);
+								//alert('the request was successfully sent to the server and result: '+ result);
 							}
 						});
 						var amen = $(this).text();						
