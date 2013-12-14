@@ -21,3 +21,6 @@ insert into oratio values (0, "<p><strong>Огради мя,  Господи, с
 insert into oratio values (0, "Круто! Теперь можно ставить свечи онлайн и фотаться со свечками!");
 
 select * from oratio ORDER BY amen desc limit 0, 5;
+select * from oratio ORDER BY amen desc limit 50 offset 0;
+
+update oratio set amen = amen+1 where verba="<span class=\"Unicode\">Отче нашъ, сущій на небесахъ!<br>да святится имя Твое;<br>да пріидетъ Царствіе Твое;<br>да будетъ воля Твоя и на землѣ, какъ на небѣ;<br>хлѣбъ нашъ насущный дай намъ на сей день;<br>			и прости намъ долги наши, какъ и мы прощаемъ должникамъ нашимъ;<br>и не введи насъ в искушеніе, но избавь насъ от лукаваго</span>";

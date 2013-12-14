@@ -24,18 +24,38 @@
 		}	
 	}
 	
-	echo "[";
-	$oratio_offset = $_GET['oratio_offset'];
-	$query = "select * from oratio ORDER BY amen desc limit 5 offset ".($oratio_offset*5);
-	$sql = new query($query);
-	while($sql->row) {
-		$verba = $sql->row['verba'];
-		$amen  = $sql->row['amen'];
+	
+	if(isset($_POST['oratio_offset'])) {
+		echo "[";
+		$oratio_offset = $_POST['oratio_offset'];
+		$query = "select * from oratio ORDER BY amen desc limit 50 offset ".($oratio_offset*50);
+		$sql = new query($query);
+		while($sql->row) {
+			$verba = $sql->row['verba'];
+			$amen  = $sql->row['amen'];
+			
+			
+			echo json_encode(array('text' => $verba, 'amen' => $amen));
+			$sql->next();
+			if($sql->row) { echo ","; }
+		}
+		echo "]";
+	} else if(isset($_POST['add_prey'])) {
+		$prey = $_POST['add_prey'];
+		$query = "insert into oratio values (0, \"".$prey."\")";
+		new query($query);
+		echo "ok, sql query: ".$query;
+	} else if(isset($_POST['to_amen_oratio_verba'])) {
+		$oratio_verba = $_POST['to_amen_oratio_verba'];
+		//$oratio_verba = preg_replace_callback('/(?<!\\\)".*?(?<!\\\)"/s', function($m) { return str_replace(';', ',', $m[0]); }, $oratio_verba);
+		$oratio_verba = addslashes($oratio_verba);
 		
-		
-		echo json_encode(array('text' => $verba, 'amen' => $amen));
-		$sql->next();
-		if($sql->row) { echo ","; }
+		$query = "update oratio set amen = amen+1 where verba=\"".$oratio_verba."\"";
+		new query($query);
+		echo "ok, sql query: ".$query;
 	}
-	echo "]";
+	
+	// print('<pre>');
+	// print_r($_POST);
+	// print('</pre>');
 ?>
