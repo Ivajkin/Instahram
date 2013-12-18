@@ -3,6 +3,7 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<script src="js/tinymce/tinymce.min.js"></script>
 	<script src="js/jquery-2.0.3.min.js"></script>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
 <body>
 
