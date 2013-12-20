@@ -27,7 +27,6 @@ body {
 /* PRAY BUTTON */
 .pray_button {
 	margin-top: 10px;
-	cursor: pointer;
 	-moz-box-shadow:inset 0px 1px 2px 1px #c1ed9c;
 	-webkit-box-shadow:inset 0px 1px 2px 1px #c1ed9c;
 	box-shadow:inset 0px 1px 2px 1px #c1ed9c;
@@ -57,10 +56,41 @@ body {
 	font-style:normal;
 	height:32px;
 	line-height:32px;
-	width:300px;
+	width:241px;
 	text-decoration:none;
 	text-align:center;
 	text-shadow:1px 1px 1px #6d9922;
+
+
+	border-radius: 3px;
+	border: 1px solid #d5d5d5;
+	vertical-align: middle;
+	cursor: pointer;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-appearance: none;
+	font: 13px Helvetica, arial, freesans, clean, sans-serif;
+	line-height: 1.4;
+
+	position: relative;
+	display: inline-block;
+	padding: 7px 12px;
+	font-size: 13px;
+	font-weight: bold;
+	white-space: nowrap;
+
+	color: #fff;
+	text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
+	background-color: #60b044;
+	background-image: -moz-linear-gradient(#8add6d, #60b044);
+	background-image: -webkit-linear-gradient(#8add6d, #60b044);
+	background-image: linear-gradient(#8add6d, #60b044);
+	background-repeat: repeat-x;
+	border-color: #5ca941;
 }
 .pray_button:hover {
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #8cb82b), color-stop(1, #9dce2c) );
