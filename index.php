@@ -11,7 +11,7 @@
 
 	<div class="post">
 		<textarea></textarea>
-		<button>Поставить свечку и помолиться</button>
+		<button class="pray_button">Поставить свечку и помолиться</button>
 	</div>
 	
 	<div class="prays">
