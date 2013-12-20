@@ -26,6 +26,8 @@ body {
 
 /* PRAY BUTTON */
 .pray_button {
+	margin-top: 10px;
+	cursor: pointer;
 	-moz-box-shadow:inset 0px 1px 2px 1px #c1ed9c;
 	-webkit-box-shadow:inset 0px 1px 2px 1px #c1ed9c;
 	box-shadow:inset 0px 1px 2px 1px #c1ed9c;
