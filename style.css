@@ -24,6 +24,13 @@ body {
 	float: right;
 }
 
+.instahram_header {
+	height: 50px;
+	font-size: 3.0em;
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+
 /* PRAY BUTTON */
 .pray_button {
 	margin-top: 10px;
