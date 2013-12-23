@@ -7,9 +7,9 @@
 </head>
 <body>
 	
-	<h1>Инстахрам</h1>
+	<h1 class="instahram_header">Инстахрам</h1>
 	
-	<iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Finstahram.ru%2F&amp;width&amp;layout=standard&amp;action=like&amp;show_faces=true&amp;share=true&amp;height=80" scrolling="no" frameborder="0" style="margin-top:-47px; float:right; border:none; overflow:hidden; height:80px;" allowtransparency="true"></iframe>
+	<iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Finstahram.ru%2F&amp;width&amp;layout=standard&amp;action=like&amp;show_faces=true&amp;share=true&amp;height=80" scrolling="no" frameborder="0" style="margin-top:-60px; float:right; border:none; overflow:hidden; height:80px;" allowtransparency="true"></iframe>
 
 	<div class="post">
 		<textarea></textarea>
