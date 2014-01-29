@@ -28,7 +28,7 @@
 	if(isset($_POST['oratio_offset'])) {
 		echo "[";
 		$oratio_offset = $_POST['oratio_offset'];
-		$query = "select * from oratio ORDER BY amen desc limit 50 offset ".($oratio_offset*50);
+		$query = "select * from oratio ORDER BY amen desc limit 5000 offset ".($oratio_offset*5000);
 		$sql = new query($query);
 		while($sql->row) {
 			$verba = $sql->row['verba'];
